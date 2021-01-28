@@ -110,28 +110,28 @@ After activating the virtualenv do the following
 ```
 cd PaymentProcess
 pip install -r requirements.txt
-
+cd flask_app
+```
 ### in Ubuntu
 
-```
-export FLASK_APP=app.py
-```
+`export FLASK_APP=app.py`
+
 
 ### in Windows
 
-```
-FLASK_APP=app.py
-```
+`set FLASK_APP=app.py`
 
+```
 flask db upgrade
 flask run
-
 ```
+
 Initialyse Table paymentType in Database
 ----------------------------------------
-
+```
 * cd PaymentProcess
 * psql -h hostname -p port -U username database -f data.sql
+```
 
 Where :
    - hostname : host of database
