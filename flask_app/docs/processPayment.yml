@@ -1,0 +1,41 @@
+summary: "Add a payment"
+description: "Make a payment with credit card"
+consumes:
+- "application/json"
+produces:
+- "application/json"
+parameters:
+- in: "body"
+  name: "body"
+  description: "Accepts a input dictionary"
+  required: true
+  schema:
+        type: "object"
+        properties:
+            CreditCardNumber:
+                type: "string"
+                format: "string64"
+                example : "3716820019271998"
+            CardHolder:
+                type: "string"
+                format: "string64"
+                example : "Stephanie KENGNE"
+            ExpirationDate:
+                type: "date"
+                format: "date64"
+                example : "2022-08-26"
+            SecurityCode:
+                type: "string"
+                format: "string64"
+                example : "f8t"
+            Amount:
+                type: "Float"
+                format: "Float64"
+                example : 568.54
+responses:
+    201:
+        description: "payment created"
+    400:
+        description: "Invalid input"
+    500:
+        description: "Internal Server Error"

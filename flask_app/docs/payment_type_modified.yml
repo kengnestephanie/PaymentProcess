@@ -1,0 +1,41 @@
+summary: "Modified a payment type"
+description: "Set available status for a payment type"
+consumes:
+- "application/json"
+produces:
+- "application/json"
+parameters:
+- name: pk
+  in: path
+  description: "Ide"
+  required: true
+  schema:
+    type: integer
+    format: int64
+
+- in: "body"
+  name: "body"
+  description: "Accepts a input dictionary"
+  required: true
+  schema:
+        type: "object"
+        properties:
+            name:
+                type: "string"
+                format: "string"
+                example : "cheap"
+            value:
+                type: "string"
+                format: "string"
+                example : "CheapPaymentGateway"
+            is_available:
+                type: "boolean"
+                example : True
+                default: True
+responses:
+    200:
+        description: "payment created"
+    400:
+        description: "Invalid input"
+    500:
+        description: "Internal Server Error"

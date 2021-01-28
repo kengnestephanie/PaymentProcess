@@ -1,0 +1,11 @@
+summary: "List of payments type"
+description: "List all type of payments"
+consumes:
+- "application/json"
+produces:
+- "application/json"
+responses:
+    200:
+        description: "List all payments type"
+    500:
+        description: "Internal Server Error"
