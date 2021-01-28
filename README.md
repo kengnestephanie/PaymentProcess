@@ -62,19 +62,19 @@ Python 3 is preinstalled in Ubuntu. Virtualenv and pip necessarily aren't, so:
 
 * `sudo apt-get install python-virtualenv python-pip`
 
-Install postgresql 12
+Install postgresql 12 (https://www.postgresql.org/download/linux/ubuntu/)
 
 * Create the file repository configuration:
-sudo sh -c 'echo "deb http://apt.postgresql.org/pub/repos/apt $(lsb_release -cs)-pgdg main" > /etc/apt/sources.list.d/pgdg.list'
+`sudo sh -c 'echo "deb http://apt.postgresql.org/pub/repos/apt $(lsb_release -cs)-pgdg main" > /etc/apt/sources.list.d/pgdg.list'`
 
 * Import the repository signing key:
-wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
+`wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add - `
 
 * Update the package lists:
-sudo apt-get update
+`sudo apt-get update`
 
 * Install the latest version of PostgreSQL.
-sudo apt-get -y install postgresql-12
+`sudo apt-get -y install postgresql-12`
 
 ### Creating and activating a virtualenv
 
@@ -83,7 +83,7 @@ Go to the project root directory and run:
 Windows:
 
 ```
-c:\location_of_project>c:\Python36\scripts\virtualenv --system-site-packages venv
+c:\location_of_project>C:\Python36\python.exe -m venv ./venv
 c:\location_of_project>venv\Scripts\activate
 ```
 
@@ -94,13 +94,23 @@ virtualenv -p /usr/bin/python3 --system-site-packages venv
 source venv/bin/activate
 ```
 
+Required
+--------
+
+Connect to postgresql and create emty database
+
+`CREATE DATABASE flask_app`
+
+
 Configure the project
 ---------------------
 
-cd PaymentProcess/flask_app
-nano config.py
 Enter information for the databse
 
+```
+cd PaymentProcess/flask_app
+nano config.py
+```
 
 Starting the project
 --------------------
@@ -137,6 +147,8 @@ Where :
    - hostname : host of database
    - port : port to connect on database
    - username : username of the databse owner
+
+
 
 
 Now the test should be visible in the browser at
